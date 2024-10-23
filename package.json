@@ -1,5 +1,5 @@
 {
-  "name": "desafio-backend-modulo-05-sistema-pdv-b2b-ifood-t04",
+  "name": "pdv-api",
   "version": "1.0.0",
   "description": "![](https://i.imgur.com/xG74tOh.png)",
   "main": "./src/index.js",
@@ -12,15 +12,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Erro404-Grupo-Nao-Encontrado/desafio-backend-modulo-05-sistema-pdv-b2b-ifood-t04.git"
+    "url": "git+https://github.com/JoaoMedeirosDev/pdv-api.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Erro404-Grupo-Nao-Encontrado/desafio-backend-modulo-05-sistema-pdv-b2b-ifood-t04/issues"
+    "url": "https://github.com/JoaoMedeirosDev/pdv-api/issues"
   },
-  "homepage": "https://github.com/Erro404-Grupo-Nao-Encontrado/desafio-backend-modulo-05-sistema-pdv-b2b-ifood-t04#readme",
+  "homepage": "https://github.com/JoaoMedeirosDev/pdv-api#readme",
   "devDependencies": {
     "eslint": "^8.50.0",
     "nodemon": "^3.0.1",
