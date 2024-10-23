@@ -1,4 +1,4 @@
-const productsRepository = require('../../repositories/products-repository');
+const productsRepository = require('../../repositories/products-repository'); 
 const { deleteImagemBucket } = require('../../utils/delete-image-bucket');
 
 async function deleteProduct(req, res) {
@@ -8,15 +8,20 @@ async function deleteProduct(req, res) {
     const isLinkedToOrder = await productsRepository.isLinkedToOrder(id);
 
     if (isLinkedToOrder) {
-      return res
-        .status(400)
-        .json({
-          message:
-            'Este produto está vinculado a um pedido e não pode ser excluído.',
-        });
+      return res.status(400).json({
+        message: 'Este produto está vinculado a um pedido e não pode ser excluído.',
+      });
     }
+
     const deletedProduct = await productsRepository.deleteById(id);
+
+    if (!deletedProduct) {
+      return res.status(404).json({ message: 'Produto não encontrado.' });
+    }
+
+    // Tenta deletar a imagem do S3
     await deleteImagemBucket(deletedProduct.produto_imagem);
+
     return res.status(200).json({
       message: 'Produto deletado com sucesso',
       product: deletedProduct,

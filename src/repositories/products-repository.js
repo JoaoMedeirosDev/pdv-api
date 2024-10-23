@@ -2,22 +2,15 @@ const knex = require('../libs/database');
 
 async function create(data) {
   const product = await knex('produtos').insert(data).returning('*');
-
   return product[0];
 }
 
 async function findById(id) {
   const product = await knex('produtos')
-    .where({
-      id,
-    })
+    .where({ id })
     .first();
 
-  if (!product) {
-    return null;
-  }
-
-  return product;
+  return product || null;
 }
 
 async function save(id, updatedData) {
@@ -26,10 +19,7 @@ async function save(id, updatedData) {
     .update(updatedData)
     .returning('*');
 
-  if (!updatedProduct) {
-    return null;
-  }
-  return updatedProduct[0];
+  return updatedProduct[0] || null;
 }
 
 async function findMany(categoria_id) {
@@ -50,10 +40,7 @@ async function deleteById(id) {
     .delete()
     .returning('*');
 
-  if (!deleteProducts) {
-    return null;
-  }
-  return deleteProducts[0];
+  return deleteProducts[0] || null;
 }
 
 async function isLinkedToOrder(productId) {

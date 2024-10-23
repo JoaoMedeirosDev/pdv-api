@@ -22,7 +22,7 @@ const productSchema = Joi.object({
   categoria_id: Joi.number().required().messages({
     'any.required': 'O campo categoria_id é obrigatório',
     'number.base': 'O campo categoria_id deve ser um número válido.',
-  }),
+  })
 });
 
 module.exports = { productSchema };

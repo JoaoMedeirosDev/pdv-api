@@ -7,4 +7,5 @@ const categoryRoutes = Router();
 
 categoryRoutes.get('/categoria', findCategories);
 
+
 module.exports = { categoryRoutes };
